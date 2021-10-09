@@ -6,12 +6,13 @@ var Handlebars = require('handlebars')
 var {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
 var session = require('express-session')
 const MongoStore = require('connect-mongodb-session')(session)
-const localStorage = require("node-localstorage")
+const dotenv = require('dotenv')
+dotenv.config()
 const mainRoute = require('./routes/main')
 const userRoute = require('./routes/user')
 const authMiddleware = require('./middlewares/auth')
 const PORT = process.env.PORT || 3000;
-const MONGODB_URI = 'mongodb+srv://Danylo:Danylo2006@cluster0.a4qmo.mongodb.net/shop'
+const MONGODB_URI = `${process.env.MONGO_URI}`
 
 var app = express()
 

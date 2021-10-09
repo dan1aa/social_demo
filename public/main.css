@@ -1,0 +1,140 @@
+.sign_up_wrapper, .log_in_wrapper{
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top:0;
+    left:0;
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(100%);
+
+}
+
+.main_info{
+    background-color: #5DADE2;
+    height:calc(100vh - 200px);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.main_text, .unloginned_text, .register_text{
+    color: white;
+}
+.main_text{
+    font-size: 46px;
+    letter-spacing: 3px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.unloginned_text{
+    font-size: 24px;
+     letter-spacing: 1px;
+     margin-bottom: 20px;
+}
+.popup_button{
+    height: 50px;
+    width: 120px;
+    display: flexbox;
+    align-items: center;
+    outline: none;
+    border:none;
+    justify-content: center;
+    color: #5DADE2;
+    background-color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+.register_text{
+    text-decoration: underline;
+    cursor: pointer; 
+}
+.explore_button {
+    width: 130px;
+}
+.sign_up, .log_in{
+    width: 450px;
+    background-color: white;
+    border-radius: 30px;
+    border:1px solid black;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px 0px 22px 15px rgba(0, 0, 0, 0.2);
+}
+.sign_up{
+    height: 550px;
+}
+.log_in{
+    height: 450px;
+}
+.sign_up form ,.log_in form{
+    width: 225px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+}
+.sign_up_title , .log_in_title{
+    font-size: 36px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+.sign_up form input, .log_in form input{
+    height: 40px;
+    width: 225px;
+    border-radius: 10px;
+    border:1px solid black;
+    outline: none;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 10px 5px rgba(34, 60, 80, 0.2) inset;
+}
+.sign_up form input:focus, .log_in form input:focus {
+    box-shadow: none;
+    transition: .5s ease-in-out;
+}
+label{
+    align-self: flex-start;
+    margin-bottom: 5px;
+    color: #5DADE2;
+}
+.button_wrapper {
+    height: auto;
+    width: 225px;
+    display: flex;
+    justify-content: space-between;
+
+}
+.sign_up_button, .sign_up_close , .log_in_button , .log_in_close{
+    width: 100px;
+    height: 45px;
+    color: white;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.sign_up_button, .log_in_button {
+    background: #5DADE2;
+}
+.sign_up_close, .log_in_close {
+    background: tomato;
+}
+.sign_up form input[name="sign_up_repeat"] , .log_in form input[name="log_in_password"]{
+    margin-bottom: 30px;
+}
+@media screen and (max-width: 900px) {
+    .main_text{
+        font-size: 30px;
+    }
+    .sign_up, .log_in{
+        width: 300px;
+    }
+  }

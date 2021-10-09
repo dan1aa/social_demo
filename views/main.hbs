@@ -1,0 +1,51 @@
+<div class="sign_up_wrapper">
+    <div class="sign_up">
+        <form action="/signup" method="POST">
+            <h1 class="sign_up_title">Sign up</h1>
+            <label for="sign_up_name">name</label><input type="text" name="sign_up_name" required>
+            <label for="sign_up_password">password</label><input type="password" name="sign_up_password" required>
+            <label for="sign_up_repeat">repeat password</label><input type="password" name="sign_up_repeat" required>
+            <div class="button_wrapper">
+                <button class="sign_up_close">Cancel</button>
+                <button type="submit" class="sign_up_button">Confirm</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="log_in_wrapper">
+    <div class="log_in">
+        <form action="/login" method="POST">
+            <h1 class="log_in_title">Log in</h1>
+            <label for="log_in_name">name</label><input type="text" name="log_in_name" required>
+            <label for="log_in_password">password</label><input type="password" name="log_in_password" required>
+            <div class="button_wrapper">
+                <button class="log_in_close">Cancel</button>
+                <button type="submit" class="log_in_button">Confirm</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="container">
+    {{#if isAuth}}
+        {{> clouds}}
+        <div class="main_info">
+            <h1 class="main_text">Hello, here you can<br />
+                say all your thoughts</h1>
+            <form action="" method="GET">
+                <button class="popup_button explore_button">Expolore the site!</button>
+            </form>
+        </div>
+    </div>
+    {{else}}
+    {{> clouds}}
+        <div class="main_info">
+            <h1 class="main_text">Hello, here you can<br />
+                say all your thoughts</h1>
+            <h6 class="unloginned_text">but, you are not loginned</h6>
+            <button class="popup_button">I want to log in</button>
+            <span class="register_text">Don`t have an account?</span>
+        </div>
+    </div>
+</div>
+<script src="/app.js"></script>
+{{/if}}

@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const logInWrapper = document.querySelector(".log_in_wrapper")
     const registerButton = document.querySelector(".register_text");
     const logInButton = document.querySelector('.popup_button');
-    const signUpCancelButton = document.querySelector('.sign_up_close');
-    const logInCancelButton = document.querySelector(".log_in_close");
+    const signUpCancelButton = document.querySelector('.sign_cancel_button');
+    const logInCancelButton = document.querySelector(".log_cancel_button");
     const container =  document.querySelector(".container");
 
     function formButtonsOptions(translatePercentage, blurValue, wrapper) {

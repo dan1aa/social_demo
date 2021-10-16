@@ -1,27 +1,38 @@
 <div class="sign_up_wrapper">
     <div class="sign_up">
         <form action="/signup" method="POST">
-            <h1 class="sign_up_title">Sign up</h1>
-            <label for="sign_up_name">name</label><input type="text" name="sign_up_name" required>
-            <label for="sign_up_password">password</label><input type="password" name="sign_up_password" required>
-            <label for="sign_up_repeat">repeat password</label><input type="password" name="sign_up_repeat" required>
-            <div class="button_wrapper">
-                <button class="sign_up_close">Cancel</button>
-                <button type="submit" class="sign_up_button">Confirm</button>
+            <div class="sign_cancel">
+                <button class="sign_cancel_button"><img src="./close.png" alt=""></button>
             </div>
+            <div class="sign_name">
+                <h1 class="sign_title">Sign up</h1>
+            </div>
+            <div class="sign_input">
+                <input  class="sign_input_name" type="text" id="" placeholder="name" name=" sign_up_name" required> </input>
+                <input  class="sign_input_password"type="password" id="" placeholder="password" name="sign_up_password" required> </input>
+                <input  class="sign_input_repeat_password"type="password" id="" placeholder="password" name="sign_up_repeat_password" required> </input>
+            </div>
+            <div class="sign_confirm">
+                <button class="confirm_button">Confirm</button>
+            </div> 
         </form>
     </div>
 </div>
 <div class="log_in_wrapper">
     <div class="log_in">
         <form action="/login" method="POST">
-            <h1 class="log_in_title">Log in</h1>
-            <label for="log_in_name">name</label><input type="text" name="log_in_name" required>
-            <label for="log_in_password">password</label><input type="password" name="log_in_password" required>
-            <div class="button_wrapper">
-                <!-- lfed-->
-                <button class="log_in_close">Cancel</button>
-                <button type="submit" class="log_in_button">Confirm</button>
+            <div class="log_cancel">
+                <button class="log_cancel_button"><img src="./close.png" alt=""></button>
+            </div>
+            <div class="log_name">
+                <h1 class="log_title">Sign in</h1>
+            </div>
+            <div class="log_input">
+                <input  class="log_input_name" type="text" id="" placeholder="name" name="log_in_name" required> </input>
+                <input  class="log_input_password"type="text" id="" placeholder="password" name="log_in_password" required> </input>
+            </div>
+            <div class="log_confirm">
+                <button class="confirm_button">Confirm</button>
             </div>
         </form>
     </div>

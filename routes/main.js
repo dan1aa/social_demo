@@ -1,4 +1,5 @@
 const { Router } = require("express");
+const bcrypt = require('bcrypt')
 const User = require("../models/User");
 const router = Router();
 
@@ -14,11 +15,10 @@ router.post("/login", async (req, res) => {
   try {
     const { log_in_name, log_in_password } = req.body;
     const candidate = await User.findOne({
-      name: log_in_name,
-      password: log_in_password,
+      name: log_in_name
     });
     if (candidate) {
-      const areSame = candidate.password === log_in_password;
+      const areSame = await bcrypt.compare(log_in_password, candidate.password)
 
       if (areSame) {
         req.session.user = candidate;
@@ -48,9 +48,10 @@ router.post("/signup", async (req, res) => {
     console.log('Already register!')
   }
   else {
+    const hashPassword = await bcrypt.hash(sign_up_password, 10);
     const user = new User({
       name: sign_up_name,
-      password: sign_up_password,
+      password: hashPassword,
       posts: [],
       pointsCount: 0,
       likesCount: 0,

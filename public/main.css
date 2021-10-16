@@ -11,8 +11,6 @@
     transform: translateX(100%);
 
 }
-
-
 .main_info{
     background-color: #5DADE2;
     height:calc(100vh - 200px);
@@ -74,7 +72,7 @@
 .log_in form{
     width: 100%;
     height: 100%;
-    padding:  15px;
+    padding: 15px;
 }
 .sign_up form{
     width:100%;
@@ -97,14 +95,15 @@ label{
 /*  Log in buttons ------------------------------------------------  */
 
 .sign_cancel_button, .log_cancel_button{
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     background-color: tomato;
     border: none;
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 .sign_cancel_button img, .log_cancel_button img{
     filter: invert(1);
@@ -120,6 +119,7 @@ label{
     justify-content: center;
     color: white;
     font-size: 17px;
+    cursor: pointer;
 }
 /* their wrapper ---------------- */
 .log_cancel, .sign_cancel{
@@ -159,10 +159,6 @@ label{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 40px;
-}
-.log_input .log_input_name:focus, .log_input .log_input_password:focus{
-    border: none;
 }
 
 .log_input_password, .log_input_name{
@@ -172,9 +168,10 @@ label{
     border: none;
     border-bottom:2px solid #4A5EA7 ;
     outline: none;
+    font-size: 20px;
 }
 .log_input_password{
-    margin-top: 80px;
+    margin-top: 40px;
 }
 /*Log in input ---------------------------------------------------------------------------- */
 
@@ -199,6 +196,7 @@ label{
     border: none;
     border-bottom:2px solid #4A5EA7 ;
     outline: none;
+    font-size: 20px;
 }
 .sign_confirm{
     width: 100%;
@@ -206,6 +204,7 @@ label{
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 

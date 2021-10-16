@@ -1,13 +1,19 @@
 <div class="add_post_wrapper">
     <div class="add_post">
         <form action="/addpost" method="POST">
-            <h1 class="add_post_title">ADD POST</h1>
-            <label for="add_post_title">Post title</label><input type="text" name="add_post_title" required>
-            <label for="add_post_text">Post text</label><textarea name="add_post_text" required></textarea>
-            <div class="button_wrapper">
-                <button class="add_post_close">Cancel</button>
-                <button type="submit" class="submit_post">Confirm</button>
+            <div class="add_post_cancel_button">
+                <button class="add_post_cancel"><img src="./close.png" alt=""></button>
             </div>
+            <div class="add_post_title">
+                <h2>Create your post</h2>
+            </div>
+            <div class="add_post_input">
+                <input type="text" name="add_post_theme" class="add_post_theme"  placeholder="Your theme..." required>
+                <textarea name="add_post_message" class="add_post_message" placeholder="Yor message...."></textarea>
+            </div>
+            <div class="add_post_confirm_button">
+                <button class="add_post_confirm">Confirm</button>
+            </div>   
         </form>
     </div>
 </div>

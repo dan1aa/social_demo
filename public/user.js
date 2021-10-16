@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
     const container = document.querySelector(".container");
     const addPostWrapper = document.querySelector(".add_post_wrapper");
-    const addPostCloseButton = document.querySelector(".add_post_close");
+    const addPostCloseButton = document.querySelector(".add_post_cancel");
     const addPostButton = document.querySelector(".add_post_button");
-    let bioDescription = document.querySelector(".description");
+    //let bioDescription = document.querySelector(".description");
     let tabButtonPosts = document.querySelector(".your_posts");
     let tabButtonEdit = document.querySelector(".edit_profile");
     const posts = document.querySelector(".posts");
@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     addPostButton.onclick = function () {
         formButtonsOptions("0%", '10px', addPostWrapper);
+        console.log("add post")
     }
     addPostCloseButton.onclick = function (event) {
         event.preventDefault()
@@ -35,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
     tabButtonEdit.onclick = function(){
         tabButtonsOptions(posts, editForm)
     }
-    if(bioDescription.textContent.trim() == ""){
+    /*if(bioDescription.textContent.trim() == ""){
         bioDescription.innerHTML = "Something about you..."
-    }
+    }*/
 });

@@ -12,6 +12,11 @@ const postModel = new Schema({
     userId: {
         type: Schema.Types.ObjectId,
         ref: 'User'
+    },
+    likes: {
+        type: Number,
+        required: true,
+        default: 0
     }
 
 })

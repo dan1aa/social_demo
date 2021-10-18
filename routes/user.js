@@ -6,7 +6,7 @@ const Post = require('../models/Post')
 
 
 router.get('/user', closeRoutesMiddleware, async (req, res) => {
-    const { name, pointsCount, likesCount } = req.session.user;
+    const { name, pointsCount, likesCount, followers, placement } = req.session.user;
     const posts = await Post.find().populate('userId', 'name')
     res.render('user', {
         title: "User profile",
@@ -15,7 +15,9 @@ router.get('/user', closeRoutesMiddleware, async (req, res) => {
         posts,
         name,
         pointsCount,
-        likesCount
+        likesCount,
+        followers,
+        placement
     })
 })
 
@@ -30,7 +32,6 @@ router.post('/addpost', async (req, res) => {
 })
 
 router.post('/putlike', (req, res) => {
-
 })
 
 module.exports = router

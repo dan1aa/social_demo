@@ -39,6 +39,14 @@ const userModel = new Schema({
         type: String,
         default: ''
     },
+    followers: {
+        type: Number,
+        default: 0
+    },
+    placement: {
+        type: Number,
+        default: 0
+    }
 
 })
 

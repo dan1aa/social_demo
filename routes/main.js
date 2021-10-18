@@ -36,7 +36,7 @@ router.post("/login", async (req, res) => {
       console.log("Login error");
     }
   } catch (e) {
-    console.log(e);
+    throw new Error(e)
   }
 });
 
@@ -60,7 +60,7 @@ router.post("/signup", async (req, res) => {
     req.session.user = user;
     req.session.isAuth = true;
     req.session.save((err) => {
-      if (err) {console.log(e)}
+      if (err) {throw new Error(e)}
       else {
         console.log('session loaded')
       }

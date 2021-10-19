@@ -10,6 +10,7 @@ const dotenv = require('dotenv')
 dotenv.config()
 const mainRoute = require('./routes/main')
 const userRoute = require('./routes/user')
+const searchRoute = require('./routes/search')
 const authMiddleware = require('./middlewares/auth')
 const PORT = process.env.PORT || 3000;
 const MONGODB_URI = `${process.env.MONGO_URI}`
@@ -47,6 +48,7 @@ app.use(authMiddleware)
 
 app.use(mainRoute)
 app.use(userRoute)
+app.use(searchRoute)
 
 async function start() {
     try {

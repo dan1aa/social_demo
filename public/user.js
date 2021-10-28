@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let tabButtonEdit = document.querySelector(".edit_profile");
     const posts = document.querySelector(".posts");
     const editForm = document.querySelector(".edit_user");
-    const likeButton = document.querySelector('.like_button')
+
   
     function formButtonsOptions(translatePercentage, blurValue, wrapper) {
         wrapper.style.transform = `translateX(${translatePercentage})`;

@@ -6,14 +6,14 @@ var Handlebars = require('handlebars')
 var {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
 var session = require('express-session')
 const MongoStore = require('connect-mongodb-session')(session)
-const dotenv = require('dotenv')
-dotenv.config()
+const dotenv = require('dotenv').config()
+const bodyParser = require('body-parser')
 const mainRoute = require('./routes/main')
 const userRoute = require('./routes/user')
 const searchRoute = require('./routes/search')
 const authMiddleware = require('./middlewares/auth')
 const PORT = process.env.PORT || 3000;
-const MONGODB_URI = `${process.env.MONGO_URI}`
+const MONGODB_URI = process.env.MONGO_URI
 
 var app = express()
 
@@ -44,6 +44,8 @@ app.use(session({
     store
 }))
 
+app.use(bodyParser.urlencoded({ extended: false }))
+
 app.use(authMiddleware)
 
 app.use(mainRoute)
@@ -65,7 +67,7 @@ async function start() {
     }
 
     catch(e) {
-        console.log(e)
+        throw new Error(e)
     }
     
 }

@@ -54,7 +54,8 @@
     cursor: pointer; 
 }
 .explore_button {
-    width: 130px;
+    width: 160px;
+    letter-spacing: 1.5px;
 }
 .sign_up, .log_in{
     width: 450px;

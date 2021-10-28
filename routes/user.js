@@ -6,19 +6,24 @@ const Post = require('../models/Post')
 
 
 router.get('/user', closeRoutesMiddleware, async (req, res) => {
-    const { name, pointsCount, likesCount, followers, placement } = req.session.user;
-    const posts = await Post.find().populate('userId', 'name')
-    res.render('user', {
-        title: "User profile",
-        cssFileName: 'user',
-        isClouds: true,
-        posts,
-        name,
-        pointsCount,
-        likesCount,
-        followers,
-        placement
-    })
+    try {
+        const { name, pointsCount, likesCount, followers, placement } = req.session.user;
+        const posts = await Post.find({userId: req.session.user._id})
+        res.render('user', {
+            title: "User profile",
+            cssFileName: 'user',
+            isClouds: true,
+            posts,
+            name,
+            pointsCount,
+            likesCount,
+            followers,
+            placement
+        })
+    }
+    catch(e) {
+        throw new Error(e)
+    }
 })
 
 router.post('/addpost', async (req, res) => {

@@ -35,10 +35,7 @@ const userModel = new Schema({
         type: Number,
         default: 0
     },
-    description: {
-        type: String,
-        default: ''
-    },
+    followingOn: [],
     followers: {
         type: Number,
         default: 0

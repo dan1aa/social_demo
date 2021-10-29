@@ -7,7 +7,18 @@ document.addEventListener("DOMContentLoaded", function () {
     let tabButtonEdit = document.querySelector(".edit_profile");
     const posts = document.querySelector(".posts");
     const editForm = document.querySelector(".edit_user");
-
+    //
+    const settingsWrapper= document.querySelector(".settings_wrapper");
+    const settingsButton = document.querySelector(".settings_button");
+    const settingsCancel = document.querySelector(".settings_cancel");
+    const settingsEditInfo = document.querySelector(".edit_info_button");
+    const settingsChangeInfo = document.querySelector("change_info_button")
+    const editSettingsWrapper = document.querySelector(".edit_settings_wrapper")
+    const editSettingsCancel = document.querySelector(".edit_settings_cancel");
+    const changeSettingsInfo = document.querySelector(".change_info_button")
+    const changeSettingsWrapper = document.querySelector(".change_settings_wrapper")
+    const changeSettingsCancel = document.querySelector(".change_settings_cancel") 
+    //
   
     function formButtonsOptions(translatePercentage, blurValue, wrapper) {
         wrapper.style.transform = `translateX(${translatePercentage})`;
@@ -34,5 +45,28 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     tabButtonEdit.onclick = function(){
         tabButtonsOptions(posts, editForm)
+    }
+    settingsButton.onclick = function(){
+        formButtonsOptions("0px", "10px", settingsWrapper);
+    }
+    settingsCancel.onclick = function(event){
+        event.preventDefault()
+        formButtonsOptions("100%", "0px", settingsWrapper)
+    }
+    settingsEditInfo.onclick = function(){
+        formButtonsOptions("0px", "10px", editSettingsWrapper);
+        formButtonsOptions("100%", "10px", settingsWrapper)
+    }
+    editSettingsCancel.onclick = function(event){
+        event.preventDefault()
+        formButtonsOptions("100%", "0px", editSettingsWrapper);
+    }
+    changeSettingsInfo.onclick = function(){
+        formButtonsOptions("100%", "0px", settingsWrapper)
+        formButtonsOptions("0px", "10px", changeSettingsWrapper)
+    }
+    changeSettingsCancel.onclick = function(event){
+        event.preventDefault()
+        formButtonsOptions("100%", "0px", changeSettingsWrapper)
     }
 });

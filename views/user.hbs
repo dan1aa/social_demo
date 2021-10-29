@@ -17,6 +17,55 @@
         </form>
     </div>
 </div>
+<div class="settings_wrapper">
+    <div class="settings_container">
+        <div class="top_container">
+            <div class="edit_info_button">Edit account info</div>
+            <button class="settings_cancel"><img src="./close.png" alt=""></button>
+        </div>
+        <div class="bottom_container">
+            <div class="change_info_button">Change password</div>
+        </div>
+    </div>
+</div>
+<div class="edit_settings_wrapper">
+    <div class="edit_settings_container">
+        <form action="" class="edit_settings_form">
+            <div class="edit_settings_cancel_wrapper">
+                <button class="edit_settings_cancel"><img src="./close.png" alt=""></button>
+            </div>
+            <div class="edit_settings_name">
+                <h2 class="edit_settings_title">Edit info</h2>
+            </div>
+            <div class="edit_settings_input">
+                <input type="text" placeholder="Type here your new name" class="edit_name_input" required>
+                <input type="text" placeholder="Type here your new e-mail" class="edit_email_input" required>
+            </div>
+            <div class="edit_settings_confirm">
+                <button class="edit_confirm_button">Confirm</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="change_settings_wrapper">
+    <div class="change_settings_container">
+        <form action="" class="change_settings_form">
+            <div class="change_settings_cancel_wrapper">
+                <button class="change_settings_cancel"><img src="./close.png" alt=""></button>
+            </div>
+            <div class="change_settings_name">
+                <h2 class="change_settings_title">Change password</h2>
+            </div>
+            <div class="change_settings_input">
+                <input type="password" placeholder="Type here your new password" class="change_password_input">
+                <input type="password" placeholder="Repeat here your password" class="change_repeat_input">
+            </div>
+            <div class="change_settings_confirm">
+                <button class="change_confirm_button">Confirm</button>
+            </div>
+        </form>
+    </div>
+</div>
 <div class="add_post_button">
     <img src="./add.png" alt="">
 </div>
@@ -75,6 +124,7 @@
                 </div>
                 <div class="bar_buttons">
                     <form action="/logout" method="GET"><button class="exit_button">Log out</button></form>
+                    <button class="settings_button">Settings</button>
                 </div>
         </div>
         <div class="user_posts">

@@ -41,7 +41,7 @@ router.post("/login", async (req, res) => {
 });
 
 router.post("/signup", async (req, res) => {
-  const { sign_up_name, sign_up_password } = req.body;
+  const { sign_up_name, sign_up_password, sign_up_email } = req.body;
   const candidate = await User.findOne({ name: sign_up_name })
 
   if(candidate) {
@@ -52,10 +52,10 @@ router.post("/signup", async (req, res) => {
     const user = new User({
       name: sign_up_name,
       password: hashPassword,
+      email: sign_up_email,
       posts: [],
       pointsCount: 0,
-      likesCount: 0,
-      description: ""
+      likesCount: 0
     });
     req.session.user = user;
     req.session.isAuth = true;
@@ -67,14 +67,16 @@ router.post("/signup", async (req, res) => {
     })
 
     await user.save();
+    console.log(user.name, user.email)
     res.redirect(`/`);
   }
 });
 
-router.get("/logout", (req, res) => {
-  req.session.destroy(() => {
-    res.redirect("/");
-  });
-});
+router.get('/forgotpassword', (req, res) => {
+  res.render('forgotPassword', {
+    title: 'Reset password',
+    cssFileName: 'forgotPassword'
+  })
+})
 
 module.exports = router;

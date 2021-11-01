@@ -1,0 +1,94 @@
+<div class="container">
+    <div class="profile_wrapper">
+        <div class="left_bar">
+            <div class="avatar_wrapper">
+                <hr class="deco_line">
+                <h1>{{username}}</h1>
+                <img src="./user.png" alt="">
+            </div>
+            <div class="stats_container">
+                <div class="stats_title">
+                    <div class="text_deco">
+                    <span>S</span>tats
+                    </div>
+                </div>
+                <div class="stats_wrapper">
+                    <div class="place_wrapper">
+                        <img src="./top-three.png" alt="">
+                        <div class="top_number">
+                            <h2>{{placement}}</h2>
+                        </div>
+                        <div class="top_message">
+                            <span>TOP</span>
+                        </div>
+                    </div>
+                    <div class="likes_wrapper">
+                        <img src="./like.png" alt="">
+                        <div class="likes_number">
+                            <h2>{{likesCount}}</h2>
+                        </div>
+                        <div class="likes_message">
+                            <span>LIKES</span>
+                        </div>
+                    </div>
+                    <div class="posts_wrapper">
+                        <img src="./pizza-slice.png" alt="">
+                        <div class="posts_number">
+                            <h2>{{pointsCount}}</h2>
+                        </div>
+                        <div class="posts_message">
+                            <span>POINTS</span>
+                        </div>
+                    </div>
+                    <div class="followers_wrapper">
+                        <img src="./follower.png" alt="">
+                        <div class="followers_number">
+                            <h2>{{followers}}</h2>
+                        </div>
+                        <div class="followers_message">
+                            <span>Followers</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bar_buttons">
+                {{#if isFollowing}}
+                <form method="POST" action="/unfollow"><button type="submit" class="unfollow_button">Unfollow</button></form>
+                {{else}}
+                <form method="POST" action="/follow"><button type="submit" class="follow_button">Follow</button></form>
+                {{/if}}
+            </div>
+        </div>
+        <div class="user_posts">
+            <div class="title_wrapper">
+                <div class="your_posts">
+                    <span>Posts</span>
+                </div>
+            </div>
+            <div class="posts tab_active">
+                <div class="wrap">
+                    {{#each posts}}
+                    <div class="post">
+                        <div class="post_text">
+                            <h2 class="post_title">{{title}}</h2>
+                            {{text}}
+                        </div>
+                        <div class="post_bottom">
+                            <div class="like">
+                                <form method="POST" action="/putlike" class="like_form"><img class="like_button" src="./like.png" alt="" /></form>
+                                <span class="like_counter">0</span>
+                            </div>
+                            <div class="line_wrapper">
+                                <div class="line_one"> </div>
+                                <div class="line_two"> </div>
+                            </div>
+                            <img src="./more.png" alt="" class="more_button" />
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/userSearchPage.js"></script>

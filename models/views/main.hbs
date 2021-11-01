@@ -1,0 +1,63 @@
+<div class="sign_up_wrapper">
+    <div class="sign_up">
+        <form action="/signup" method="POST">
+            <div class="sign_cancel">
+                <button class="sign_cancel_button"><img src="./close.png" alt=""></button>
+            </div>
+            <div class="sign_name">
+                <h1 class="sign_title">Sign up</h1>
+            </div>
+            <div class="sign_input">
+                <input  class="sign_input_name" type="text" id="" placeholder="name" name="sign_up_name" required> </input>
+                <input  class="sign_input_password" type="password" id="" placeholder="password" name="sign_up_password" required> </input>
+                <input  class="sign_input_repeat_password" type="password" id="" placeholder="password" name="sign_up_repeat_password" required> </input>
+            </div>
+            <div class="sign_confirm">
+                <button class="confirm_button">Confirm</button>
+            </div> 
+        </form>
+    </div>
+</div>
+<div class="log_in_wrapper">
+    <div class="log_in">
+        <form action="/login" method="POST">
+            <div class="log_cancel">
+                <button class="log_cancel_button"><img src="./close.png" alt=""></button>
+            </div>
+            <div class="log_name">
+                <h1 class="log_title">Sign in</h1>
+            </div>
+            <div class="log_input">
+                <input  class="log_input_name" type="text" id="" placeholder="name" name="log_in_name" required> </input>
+                <input  class="log_input_password" type="password" id="" placeholder="password" name="log_in_password" required> </input>
+            </div>
+            <div class="log_confirm">
+                <button class="confirm_button">Confirm</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="container">
+    {{#if isAuth}}
+        {{> clouds}}
+        <div class="main_info">
+            <h1 class="main_text">Hello, here you can<br />
+                say all your thoughts</h1>
+            <form action="/search" method="GET">
+                <button class="popup_button explore_button">Explore the site!</button>
+            </form>
+        </div>
+    </div>
+    {{else}}
+    {{> clouds}}
+        <div class="main_info">
+            <h1 class="main_text">Hello, here you can<br />
+                say all your thoughts</h1>
+            <h6 class="unloginned_text">but, you are not loginned</h6>
+            <button class="popup_button">I want to log in</button>
+            <span class="register_text">Don`t have an account?</span>
+        </div>
+    </div>
+</div>
+<script src="/app.js"></script>
+{{/if}}

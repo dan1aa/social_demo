@@ -1,30 +1,40 @@
 const {Router} = require('express')
 const router = Router()
+const { body, validationResult } = require('express-validator');
 const User = require('../models/User.js')
 const Post = require('../models/Post.js')
-const closeRoutes = require('../middlewares/closeRoutes')
+const closeRoutesMiddleware = require('../middlewares/closeRoutes')
 
 
-router.get("/search", closeRoutes, async (req, res) => {
+router.get("/search", closeRoutesMiddleware, async (req, res) => {
+  try {
     const currentUser = await User.findOne({ name: req.session.user.name });
     req.session.user.followingOn = currentUser.followingOn;
-    console.log(req.session.user.followingOn)
-    try {
-      res.render("search", {
-        title: "Search page",
-        cssFileName: "search",
-        isClouds: true,
-      });
-    }
-    catch(e) {
-      throw new Error(e)
-    }
+    res.render("search", {
+      title: "Search page",
+      cssFileName: "search",
+      isClouds: true,
+    });
+  }
+  catch(e) {
+    throw new Error(e)
+  }
 })
 
-router.get('/:username', closeRoutes, async (req, res) => {
+router.get('/:username',
+  closeRoutesMiddleware, 
+  async (req, res) => {
   try {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
     let { username } = req.params;
     let searchedUser = await User.findOne({ name: username })
+    if(!searchedUser) {
+      res.status(404).json({message: 'Not found user'})
+    }
     let _id = searchedUser._id
     let posts = await Post.find({ userId: _id })
     res.render("userSearchPage", {
@@ -44,7 +54,7 @@ router.get('/:username', closeRoutes, async (req, res) => {
   }
 })
 
-router.post('/follow', async (req, res) => {
+router.post('/follow', closeRoutesMiddleware, async (req, res) => {
   try {
     const username = req.headers.referer.split('/').splice(-1).toString().replace("?", "")
     const searchedUser = await User.findOne({ name: username });
@@ -59,7 +69,7 @@ router.post('/follow', async (req, res) => {
   }
 })
 
-router.post('/unfollow', async (req, res) => {
+router.post('/unfollow', closeRoutesMiddleware, async (req, res) => {
   try {
     const username = req.headers.referer.split('/').splice(-1).toString().replace("?", "")
     const searchedUser = await User.findOne({ name: username });

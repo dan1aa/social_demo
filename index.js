@@ -5,8 +5,10 @@ var path = require('path')
 var Handlebars = require('handlebars')
 var {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
 var session = require('express-session')
+const morgan = require('morgan')
+const helmet = require('helmet')
 const MongoStore = require('connect-mongodb-session')(session)
-const dotenv = require('dotenv').config()
+require('dotenv').config()
 const bodyParser = require('body-parser')
 const mainRoute = require('./routes/main')
 const userRoute = require('./routes/user')
@@ -31,6 +33,10 @@ app.set('views', 'views')
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.static('img'))
 
+app.use(morgan('dev'))
+app.use(helmet())
+app.use(bodyParser.urlencoded({ extended: false }))
+
 const store = new MongoStore({
     collection: 'sessions',
     uri: MONGODB_URI
@@ -44,7 +50,6 @@ app.use(session({
     store
 }))
 
-app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use(authMiddleware)
 
